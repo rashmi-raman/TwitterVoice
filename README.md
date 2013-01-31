@@ -6,6 +6,8 @@ Also, make sure you have added your Twitter details in the code and have created
 twitter4j-core-2.2.5.jar
 jsoup-1.6.2.jar
 
+You will need CMU Sphinx ASR and Festival TTS
+
 To run the application, please type the following command in the command line prompt 
 java -jar TwitterVoice.jar
 
