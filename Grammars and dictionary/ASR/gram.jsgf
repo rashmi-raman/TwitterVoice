@@ -1,0 +1,42 @@
+#JSGF V1.0;
+grammar twitterVoice;
+
+public <s>=((<system_confirmation>)|(<system_command>));
+
+<affirmative>=((YEAH)|(YES)|(YEP)|(YUP)|(OK)|(THAT'S RIGHT)| (CORRECT)|(RIGHT)|(THAT'S CORRECT)|(THAT'S WHAT I SAID)|(ALRIGHT)); 
+<negative>=((NO)|(NOPE)|(THAT'S WRONG)|(INCORRECT)|(WRONG)|(THAT'S INCORRECT)|(THAT'S NOT WHAT I SAID));
+<demand>=((READ)|(READ ME)|(GIVE ME)|(GIVE)|(I WANT));
+<dt>=((THE)|(A)|(AN));
+
+<tweetid>=((PAUL KRUGMAN)|(JOSEPH STIGLITZ)|(TIME [MAGAZINE])|(ROGER EBERT)|(CHRISTIANE AMANPOUR)|(SUZE ORMAN)|(WOLF BLITZER)|(JIM CRAMER)|(NICHOLAS KRISTOF)|(THOMAS FRIEDMAN)|(DAVID BROOKS)|(RICH EISEN)|(DAN PATRICK)|(REUTERS)|([THE] NEW YORK TIMES)|(NYT)|([THE] HUFFINGTON POST)|([THE] BBC [NEWS])|([THE] GUARDIAN)|([THE] WASHINGTON POST)|([THE] LA TIMES)|([THE] LOS ANGELES TIMES));
+
+<question_tweet>=((WHAT HAS)|(WHAT DOES)|(WHAT'S <tweetid> [TWEETED]|[SAID]));
+<demand_tweet>=  (TWEETS BY <tweetid>);
+
+<demand_trend>=(TRENDING TOPICS);
+<question_trend>=((WHAT IS)|(WHAT'S)|(WHAT ARE [THE]) TRENDING TOPICS);
+
+<question_who>=(((WHO'S IN THE)|(WHO IS IN MY)|(WHO IS IN THE))TWITTER VOICE LIST);
+<demand_who>=((([MY])|([<dt>])) TWITTER VOICE LIST);
+<exit>=((EXIT THE APPLICATION)|(QUIT)|(EXIT)|(QUIT THE APPLICATION)|(EXIT TWITTER VOICE)|(QUIT TWITTER VOICE)|(QUIT SYSTEM)|(EXIT SYSTEM)|(FINISHED)|(I'M DONE));
+
+<affirmative_article>=(<affirmative>|(SURE)|(GIVE ME THE ARTICLE)|(READ IT OUT)|(PLEASE));
+<negative_article>=(<negative>|(NO NEED)|(I DON'T WANT TO HEAR ABOUT THE ARTICLE)|(I DO NOT WANT TO HEAR ABOUT THE ARTICLE)|(THAT'S OK)|(THAT IS OK)|(THAT'S ALRIGHT)|(THAT IS ALRIGHT));
+
+<specifier>=((I WANT TO)|(PLEASE)|(I WOULD LIKE TO)|(I'D LIKE TO ));
+<ender>=((THIS ONE)|(THAT ONE)|(THIS)|(THAT));
+<action>=((RETWEET)|(FAVORITE)|(RESPOND)|(RESPOND TO)|(CONTINUE READING TWEETS ));
+<first_word>=((WONDERFUL)|(SUPPORT)|(THOUGHTFUL)|(THINK ABOUT));
+<twitter_response>=((WONDERFUL GREAT ARTICLE)|(I DON'T SUPPORT THIS)|(THOUGHTFUL READ)|(NEED TO THINK ABOUT THIS)|(THE ONE WITH <first_word>)|(THE LAST ONE)|(THE FIRST ONE));
+
+<twitter_action_command>=[<specifier>] <action> [<ender>];
+<twitter_actions>=<twitter_action_command>|<twitter_response>;
+<article>=((<affirmative_article>)|(<negative_article>));
+<who>=((<question_who>)|(<demand_who>));
+<trending_topics>=(<demand_trend>)|(<question_trend>);
+<particular>= ((<question_tweet>)|(<demand_tweet>));
+<main_menu>=((<particular>)|(<trending_topics>)|(<who>)|(<exit>));
+<system_confirmation>=((<affirmative>)|(<negative>));
+<system_command>=(([<demand>] [<dt>] <main_menu>)|([<demand>] [<dt>] <twitter_actions>)|([<demand>] [<dt>]  <article>)|([<demand>] [<dt>] <exit>));
+
+

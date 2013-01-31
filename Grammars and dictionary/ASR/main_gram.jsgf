@@ -1,0 +1,26 @@
+#JSGF V1.0;
+grammar twitterVoiceMain;
+
+public <s>=((<personal>)|(<particular>)|(<trending>)|(<voice_list>)|(<exit>)|(<help>));
+
+<personal>=  ([<specifier>] ((MY [NEWS] FEED)|([HEAR] MINE)));
+
+<particular> =  ((<question_tweet>)|(<demand_tweet>));
+<question_tweet> = ((WHAT HAS)|(WHAT DOES)|(WHAT'S) [THE] <tweetid> (TWEETED)|(SAID));
+<demand_tweet> =   ([<specifier>] (TWEETS BY [THE] <tweetid>));
+
+<trending> =  (<demand_trend>)|(<question_trend>);
+<demand_trend> = ([<specifier>] [WHAT'S] (TRENDING [TOPICS]));
+<question_trend> = ((WHAT IS)|(WHAT'S)|(WHAT ARE [THE]) TRENDING TOPICS);
+
+<voice_list>=((<question_who>)|(<demand_who>));
+<question_who> = ((WHO'S IN THE)|(WHO IS IN MY)|(WHO IS IN THE) TWITTER VOICE LIST);
+<demand_who> = ([<specifier>] [MY] TWITTER VOICE LIST);
+
+<exit> = ((EXIT THE APPLICATION)|(QUIT)|(EXIT)|(QUIT THE APPLICATION)|(EXIT TWITTER VOICE)|(QUIT TWITTER VOICE)|(QUIT SYSTEM)|(EXIT SYSTEM)|(FINISHED)|(I'M DONE));
+
+<help>= (HELP);
+
+<tweetid>=((PAUL KRUGMAN)|(SUZE ORMAN)|(WOLF BLITZER)|(NICHOLAS KRISTOF)|([THE] NEW YORK TIMES)|([THE] HUFFINGTON POST));
+
+<specifier> = ((I WANT [TO])|(PLEASE)|(I'D LIKE [TO] )|(GIVE ME)|(I'D LIKE TO HEAR)|(I WANT TO HEAR)|(I WOULD LIKE TO [HEAR]));

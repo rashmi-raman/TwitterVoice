@@ -1,0 +1,12 @@
+#JSGF V1.0;
+grammar twitterVoiceSysConf;
+
+public <s> =((<affirmative>)|(<negative>)|(<help>)|(<exit>));
+
+<affirmative> = ((YEAH)|(YES)|(YEP)|(YUP)|(OK)|(THAT'S RIGHT)| (CORRECT)|(RIGHT)|(THAT'S CORRECT)|(THAT'S WHAT I SAID)|(ALRIGHT)) ;
+
+<negative> = ((NO)|(NOPE)|(THAT'S WRONG)|(INCORRECT)|(WRONG)|(THAT'S INCORRECT)|(THAT'S NOT WHAT I SAID));
+
+<help>=(HELP);
+
+<exit> = ((EXIT THE APPLICATION)|(QUIT)|(EXIT)|(QUIT THE APPLICATION)|(EXIT TWITTER VOICE)|(QUIT TWITTER VOICE)|(QUIT SYSTEM)|(EXIT SYSTEM)|(FINISHED)|(I'M DONE));

@@ -1,0 +1,14 @@
+#JSGF V1.0;
+grammar twitterVoiceLink;
+
+public <s> =((<twitter_link>)|(<help>)|<exit>);
+<twitter_link> = (<affirmative_article>)|(<negative_article>);
+<affirmative_article> = (<affirmative> | (SURE) | (GIVE ME THE ARTICLE) | (READ IT OUT) | (PLEASE));
+<negative_article> = (<negative> | (NO NEED) | (I DON'T WANT TO HEAR ABOUT THE ARTICLE) | (I DO NOT WANT TO HEAR ABOUT THE ARTICLE) | (THAT'S OK) | (THAT IS OK) | (THAT'S ALRIGHT) | (THAT IS ALRIGHT));
+
+<affirmative> = ((YEAH)|(YES)|(YEP)|(YUP)|(OK)|(THAT'S RIGHT)| (CORRECT)|(RIGHT)|(THAT'S CORRECT)|(THAT'S WHAT I SAID)|(ALRIGHT));
+<negative> = ((NO)|(NOPE)|(THAT'S WRONG)|(INCORRECT)|(WRONG)|(THAT'S INCORRECT)|(THAT'S NOT WHAT I SAID));
+
+<help>=(HELP);
+
+<exit> = ((EXIT THE APPLICATION)|(QUIT)|(EXIT)|(QUIT THE APPLICATION)|(EXIT TWITTER VOICE)|(QUIT TWITTER VOICE)|(QUIT SYSTEM)|(EXIT SYSTEM)|(FINISHED)|(I'M DONE));

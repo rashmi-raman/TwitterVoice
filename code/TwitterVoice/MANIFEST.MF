@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: TwitterVoiceDialog
+Class-Path: twitter4j-core-2.2.5.jar jsoup-1.6.2.jar

@@ -1,0 +1,12 @@
+#JSGF V1.0;
+grammar twitterVoiceNoLink_Respond;
+
+public <s> =((<twitter_action>)|(<help>)|<exit>);
+<twitter_action> =([<specifier>] <action> [<ender>]);
+<specifier> = ((I WANT [TO])|(PLEASE)|(I'D LIKE [TO])|(GIVE ME)|(I'D LIKE TO HEAR)|(I WANT TO HEAR)|(I WOULD LIKE TO [HEAR]));
+<ender> = ((THIS ONE) |(THAT ONE)|(THIS)|(THAT));
+<action>= ((CONTINUE)|(RETWEET)|(FAVORITE)|(RESPOND));
+
+<help>=(HELP);
+
+<exit> = ((EXIT THE APPLICATION)|(QUIT)|(EXIT)|(QUIT THE APPLICATION)|(EXIT TWITTER VOICE)|(QUIT TWITTER VOICE)|(QUIT SYSTEM)|(EXIT SYSTEM)|(FINISHED)|(I'M DONE));
