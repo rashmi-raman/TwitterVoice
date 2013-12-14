@@ -13,4 +13,8 @@ java -jar TwitterVoice.jar
 
 Before a graceful exit, the application will print the location of the audio and log files created for the user session. For more details on these files.
 
+To know more about this project, please contact me at mail[dot]rashmiraman[at]gmail[dot]com or Eli Pincus at elipincus[at]gmail.com
+
+Eli helped conceptualize the application and built the web scraper - he's a genius!
+
 
